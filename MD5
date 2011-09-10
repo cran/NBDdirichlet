@@ -1,0 +1,15 @@
+5b0c3108d82203fbdd2ea5cfe1b9331d *DESCRIPTION
+ec3e104d4cc0402b78482403ed9b7f8d *NAMESPACE
+5dfd52aa01957c1a07016593c3b6c57c *R/dirichlet.R
+b06b7f945d11b6d226db9f24a969a550 *R/plot.dirichlet.R
+f3659ea2ae574ddef538c18c1f77ab43 *R/print.dirichlet.R
+f1b888c269308148db45423d70711668 *R/summary.dirichlet.R
+d353b9c53fdcd820106e3af34007d9ee *inst/doc/how-to-use-Dirichlet-marketing-model.html
+01973f85dfec7cedca4634a90167ce74 *inst/doc/how-to-use-Dirichlet-marketing-model.org
+92815038ec8d3327dda9006ebfcea0d9 *inst/doc/how-to-use-Dirichlet-marketing-model.pdf
+4e7e1587bcb2f4a77441766e454987db *inst/doc/plot.png
+8411b6b8aa01d7820819fdeea953914a *man/NBDdirichlet-package.Rd
+f2f6cb11f2e2cd2e7fbbf6f896b0e573 *man/dirichlet.Rd
+e54fe01e88381bf2b563f943d8e51a2f *man/plot.dirichlet.Rd
+f87a5d0ff1cb81300b18a2d89a844ff8 *man/print.dirichlet.Rd
+dee4a5ed1888fabed31e713d8306c28c *man/summary.dirichlet.Rd

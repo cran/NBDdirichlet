@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+lang="en" xml:lang="en">
+<head>
+<title>User Guide on R Package <code>NBDdirichlet</code> </title>
+<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2011-09-09 17:11:36 EDT"/>
+<meta name="author" content="Feiming Chen"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  {margin-left:auto; margin-right:0px;  text-align:right;}
+  .left   {margin-left:0px;  margin-right:auto; text-align:left;}
+  .center {margin-left:auto; margin-right:auto; text-align:center;}
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top;  }
+  th.right  { text-align:center;  }
+  th.left   { text-align:center;   }
+  th.center { text-align:center; }
+  td.right  { text-align:right;  }
+  td.left   { text-align:left;   }
+  td.center { text-align:center; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/javascript" src="http://orgmode.org/mathjax/MathJax.js">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        // Only one of the two following lines, depending on user settings
+        // First allows browser-native MathML display, second forces HTML/CSS
+        //  config: ["MMLorHTML.js"], jax: ["input/TeX"],
+            jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
+</head>
+<body>
+
+<div id="preamble">
+
+</div>
+
+<div id="content">
+<h1 class="title">User Guide on R Package <code>NBDdirichlet</code> </h1>
+
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1 Introduction </a></li>
+<li><a href="#sec-2">2 Usage Illustration </a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Introduction </h2>
+<div class="outline-text-2" id="text-1">
+
+<p>The Dirichlet (aka NBD-Dirichlet) model is a well known marketing
+research model for describing the purchase incidence and brand choice
+of consumer products<sup><a class="footref" name="fnr.1" href="#fn.1">1</a></sup>.  We estimate the model and summarize various
+theoretical quantities of interest to marketing researchers.  We also
+provides functions for making tables that compare observed and
+theoretical statistics.
+</p>
+<p>
+A user can simply use the function <code>dirichlet</code> to estimate the
+model, after supplying the following minimum set of parameters:
+</p><dl>
+<dt>cat.pen</dt><dd>A numeric vector of product category penetration, which is the
+               observed proportion of category buyers over a specific
+               time period.
+
+</dd>
+<dt>cat.buyrate</dt><dd>A numeric vector of Category buyers' average
+                   purchase rate in a given period. This is derived as
+                   the total number of category purchase occasions
+                   divided by the total number of category buyers
+                   during a time period.
+
+</dd>
+<dt>brand.share</dt><dd>A numeric vector of brand market share.  We
+                   typically define it as the proportions of purchase
+                   occasions that belong to different brands during
+                   the time period.
+
+</dd>
+<dt>brand.pen.obs</dt><dd>A numeric vector of observed brand penetration,
+                     which is the proportion of buyers for each brand
+                     during the time period.
+
+</dd>
+<dt>brand.name</dt><dd>A character vector of the brand names.  If not given
+                  (default), use "B1", "B2", "B3", etc.
+</dd>
+</dl>
+
+
+<p>
+Then the user can apply the method functions <code>print</code>, <code>plot</code>, and
+<code>summary</code> on the object returned from the <code>dirichlet</code> function to
+make various model observations. 
+</p>
+
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Usage Illustration </h2>
+<div class="outline-text-2" id="text-2">
+
+<p>We use the data from the example mentioned in <sup><a class="footref" name="fnr.1.2" href="#fn.1">1</a></sup> (section 3). They
+are Toothpaste purchase data in UK in 1st quarter of 1973 from the AGB
+panel (5240 static panelists).
+</p>
+<p>
+From the data we can calculate the following:
+</p><ul>
+<li>The overal penetration of the toothpaste category is 56%.
+</li>
+<li>The toothpaste buyer spends an average \pounds 2.6 per quarter.  
+</li>
+<li>The market share and penetration of each brand is shown in the
+  following table: 
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption></caption>
+<colgroup><col class="left" /><col class="right" /><col class="right" /><col class="right" /><col class="left" /><col class="left" />
+</colgroup>
+<thead>
+<tr><th scope="col" class="left">Brand Name:</th><th scope="col" class="right">Colgate DC</th><th scope="col" class="right">Macleans</th><th scope="col" class="right">Close Up</th><th scope="col" class="left">Signal</th><th scope="col" class="left">ultrabrite</th></tr>
+</thead>
+<tbody>
+<tr><td class="left">Market Share:</td><td class="right">0.25</td><td class="right">0.19</td><td class="right">0.1</td><td class="left">0.1</td><td class="left">0.09</td></tr>
+<tr><td class="left">Market Penetration:</td><td class="right">0.2</td><td class="right">0.17</td><td class="right">0.09</td><td class="left">0.08</td><td class="left">0.08</td></tr>
+</tbody>
+<tbody>
+<tr><td class="left">Brand Name:</td><td class="right">Gibbs SR</td><td class="right">Boots Priv. Label</td><td class="right">Sainsbury Priv. Lab.</td><td class="left"></td><td class="left"></td></tr>
+</tbody>
+<tbody>
+<tr><td class="left">Market Share:</td><td class="right">0.08</td><td class="right">0.03</td><td class="right">0.02</td><td class="left"></td><td class="left"></td></tr>
+<tr><td class="left">Market Penetration:</td><td class="right">0.07</td><td class="right">0.03</td><td class="right">0.02</td><td class="left"></td><td class="left"></td></tr>
+</tbody>
+</table>
+
+</li>
+</ul>
+
+
+
+
+<p>  
+Thus we can supply the following input to the model:
+</p>
+
+
+<pre class="example">cat.pen &lt;- 0.56 # Category Penetration
+cat.buyrate &lt;- 2.6 # Category Buyer's Average Purchase Rate in a given period.
+brand.share &lt;- c(0.25, 0.19, 0.1, 0.1, 0.09, 0.08, 0.03, 0.02) # Brands' Market Share
+brand.pen.obs &lt;- c(0.2,0.17,0.09,0.08,0.08,0.07,0.03,0.02) # Brand Penetration
+brand.name &lt;- c("Colgate DC", "Macleans","Close Up","Signal","ultrabrite",
+"Gibbs SR","Boots Priv. Label","Sainsbury Priv. Lab.")
+</pre>
+
+
+
+
+
+<p>
+Then we can call the main function to estimate the NBD-Dirichlet model:
+</p>
+
+
+<pre class="example">library(NBDdirichlet)
+dobj &lt;- dirichlet(cat.pen, cat.buyrate, brand.share, brand.pen.obs, brand.name)
+</pre>
+
+
+
+
+
+<p>
+It will not produce any visible result.  But we can quickly check the
+3 estimated NBD-Dirichlet model parameters (\(M, K, S\)).
+</p>
+
+
+<pre class="example">print(dobj)
+</pre>
+
+
+
+
+<pre class="example">
+Number of Brands in the Category = 8 
+Brand List : Colgate DC : Macleans : Close Up : Signal : ultrabrite : Gibbs SR : Boots Priv. Label : Sainsbury Priv. Lab.
+Brands' Market Shares: 0.25 0.19 0.1 0.1 0.09 0.08 0.03 0.02 
+Brands' Penetration:   0.2 0.17 0.09 0.08 0.08 0.07 0.03 0.02 
+Multiple of Base Time Period: 1 , Current M = 1.456 
+
+Category Penetration = 0.56 , with Buying Rate = 2.6 
+Estimated Dirichlet Model Parameters:
+NBD: M = 1.46 ,  K = 0.78 ;  Dirichlet: S = 1.3
+</pre>
+
+
+<p>
+More detailed analysis can be obtained by the <code>summary</code> method
+function.
+</p>
+
+
+<pre class="example">summary(dobj)
+</pre>
+
+
+
+
+
+<pre class="example">$buy
+                     pen.brand pur.brand pur.cat
+Colgate DC                0.20      1.82    3.16
+Macleans                  0.16      1.76    3.22
+Close Up                  0.09      1.68    3.30
+Signal                    0.09      1.68    3.30
+ultrabrite                0.08      1.67    3.31
+Gibbs SR                  0.07      1.66    3.32
+Boots Priv. Label         0.03      1.62    3.37
+Sainsbury Priv. Lab.      0.02      1.61    3.38
+
+$freq
+                        0    1    2    3    4 5   6+
+Colgate DC           0.80 0.12 0.04 0.02 0.01 0 0.01
+Macleans             0.84 0.10 0.03 0.01 0.01 0 0.00
+Close Up             0.91 0.06 0.02 0.01 0.00 0 0.00
+Signal               0.91 0.06 0.02 0.01 0.00 0 0.00
+ultrabrite           0.92 0.05 0.02 0.01 0.00 0 0.00
+Gibbs SR             0.93 0.05 0.01 0.01 0.00 0 0.00
+Boots Priv. Label    0.97 0.02 0.01 0.00 0.00 0 0.00
+Sainsbury Priv. Lab. 0.98 0.01 0.00 0.00 0.00 0 0.00
+
+$heavy
+                     Penetration Avg Purchase Freq
+Colgate DC                  0.34              1.61
+Macleans                    0.27              1.57
+Close Up                    0.15              1.51
+Signal                      0.15              1.51
+ultrabrite                  0.13              1.50
+Gibbs SR                    0.12              1.49
+Boots Priv. Label           0.05              1.46
+Sainsbury Priv. Lab.        0.03              1.45
+
+$dup
+          Colgate DC             Macleans             Close Up 
+                1.00                 0.19                 0.10 
+              Signal           ultrabrite             Gibbs SR 
+                0.10                 0.09                 0.08 
+   Boots Priv. Label Sainsbury Priv. Lab. 
+                0.03                 0.02
+</pre>
+
+
+
+<p>
+Finally we can plot the theoretical penetration growth and buying rate
+growth across multiple brands according to the Dirichlet model over a
+specified time sequence<sup><a class="footref" name="fnr.2" href="#fn.2">2</a></sup>.
+</p>
+
+
+
+<pre class="example">plot(dobj)
+</pre>
+
+
+
+
+<p>
+<img src="plot.png"  alt="plot.png" />
+</p>
+
+
+
+<hr/>
+
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+<p class="footnote"><sup><a class="footnum" name="fn.1" href="#fnr.1">1</a></sup> 
+</p>
+
+<p class="footnote"><sup><a class="footnum" name="fn.2" href="#fnr.2">2</a></sup> Default to 4 times of the observation period in input data.  So
+if we use quarterly data, the output is annulized.  This multiple (4)
+can be changed using the member function <code>period.set</code> within the model
+object <code>dobj</code>.
+</p>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+<div id="postamble">
+<p class="date">Date: 2011-09-09 17:11:36 EDT</p>
+<p class="author">Author: Feiming Chen</p>
+<p class="creator">Org version 7.7 with Emacs version 23</p>
+
+
+</div>
+</body>
+</html>
