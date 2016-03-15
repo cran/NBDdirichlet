@@ -10,7 +10,7 @@ growth across multiple brands according to the Dirichlet model over a specified 
    }
    
 \usage{
-plot.dirichlet(x, t = 4, brand = 1:x$nbrand, incr = 1, result = NULL,...)
+\method{plot}{dirichlet}(x, t = 4, brand = 1:x$nbrand, incr = 1, result = NULL,...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{

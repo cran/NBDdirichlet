@@ -9,7 +9,7 @@
   estimated Dirichlet model parameters. 
 }
 \usage{
-print.dirichlet(x,...)
+\method{print}{dirichlet}(x,...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -55,7 +55,8 @@ dobj <- dirichlet(cat.pen, cat.buyrate, brand.share, brand.pen.obs, brand.name)
 print(dobj)  # YOU WILL SEE THE FOLLOWING:
 
 # Number of Brands in the Category = 8 
-# Brand List : Colgate DC : Macleans : Close Up : Signal : ultrabrite : Gibbs SR : Boots Priv. Label : Sainsbury Priv. Lab.
+# Brand List : Colgate DC : Macleans : Close Up : Signal : ultrabrite :
+#              Gibbs SR : Boots Priv. Label : Sainsbury Priv. Lab.
 # Brands' Market Shares: 0.25 0.19 0.1 0.1 0.09 0.08 0.03 0.02 
 # Brands' Penetration:   0.2 0.17 0.09 0.08 0.08 0.07 0.03 0.02 
 # Multiple of Base Time Period: 1 , Current M = 1.456 

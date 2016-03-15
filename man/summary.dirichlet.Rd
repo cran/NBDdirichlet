@@ -9,7 +9,7 @@ calculate four types of theoretical summary statistics, which can be
 compared with the corresponding observed statistics.}
 
 \usage{
-summary.dirichlet(object, t = 1, type = c("buy", "freq", "heavy", "dup"),
+\method{summary}{dirichlet}(object, t = 1, type = c("buy", "freq", "heavy", "dup"),
 digits = 2, freq.cutoff = 5, heavy.limit = 1:6, dup.brand = 1, ...)
 }
 %- maybe also 'usage' for other objects documented here.

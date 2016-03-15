@@ -1,5 +1,5 @@
-5b0c3108d82203fbdd2ea5cfe1b9331d *DESCRIPTION
-ec3e104d4cc0402b78482403ed9b7f8d *NAMESPACE
+92df44dd28afd6585a6dcf653b427a91 *DESCRIPTION
+9a36645e95533ffb98b22f85a33fb3ef *NAMESPACE
 5dfd52aa01957c1a07016593c3b6c57c *R/dirichlet.R
 b06b7f945d11b6d226db9f24a969a550 *R/plot.dirichlet.R
 f3659ea2ae574ddef538c18c1f77ab43 *R/print.dirichlet.R
@@ -10,6 +10,6 @@ d353b9c53fdcd820106e3af34007d9ee *inst/doc/how-to-use-Dirichlet-marketing-model.
 4e7e1587bcb2f4a77441766e454987db *inst/doc/plot.png
 8411b6b8aa01d7820819fdeea953914a *man/NBDdirichlet-package.Rd
 f2f6cb11f2e2cd2e7fbbf6f896b0e573 *man/dirichlet.Rd
-e54fe01e88381bf2b563f943d8e51a2f *man/plot.dirichlet.Rd
-f87a5d0ff1cb81300b18a2d89a844ff8 *man/print.dirichlet.Rd
-dee4a5ed1888fabed31e713d8306c28c *man/summary.dirichlet.Rd
+b5ba778d40c3229571108ba49ecf3def *man/plot.dirichlet.Rd
+821e21d5a998a2fbe4e8786b015553a0 *man/print.dirichlet.Rd
+314c622c7e9c8e5a16d54d8d7178740d *man/summary.dirichlet.Rd
