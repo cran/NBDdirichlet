@@ -38,9 +38,7 @@ max.S = 30, max.K = 30, check = F)
     of the parameter K in the Dirichlet model.  If it is
     not given (default), then estimate K by "mean and zeros"(see reference).   }
 
-  \item{nstar}{Maximum number of category purchases in the time period
-considered in the calculation.  Any number larger than \code{nstar}  is assumed to have occurred with
-    probability zero.  By default, it is 50.  For higher frequently
+  \item{nstar}{Maximum number of category purchases in the time period considered in the calculation.  Any number larger than \code{nstar}  is assumed to have occurred with probability zero.  By default, it is 50.  For higher frequently
     purchased category and longer study time period, it is necessary to
     increase \code{nstar}  to the level (say, 100, 300, etc.)
     where \eqn{\sum_{n=1}^{nstar} P(n) > 0.9999}.  We did not use the

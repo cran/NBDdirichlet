@@ -2,7 +2,7 @@
 \alias{NBDdirichlet-package}
 \docType{package}
 \title{
-NBD-Dirichlet model of consumer buying behavior
+NBD-Dirichlet of Model Consumer Buying Behavior
 }
 
 \description{ The Dirichlet (aka NBD-Dirichlet) model describes the
@@ -10,22 +10,10 @@ probability distributions of the consumer purchase incidences and brand
 choices.  We estimate the model and calculate various theoretical
 quantities of interest to marketing researchers.  }
 
-\details{
-\tabular{ll}{
-Package: \tab dirichlet\cr
-Type: \tab Package\cr
-Version: \tab 1.0\cr
-Date: \tab 2008-08-12\cr
-License: \tab  GPL (>=2)\cr
-}
-
-}
 \author{
 Feiming Chen
-
-Maintainer: Feiming Chen <feimingchen@yahoo.com>
-
 }
+
 \references{
   \emph{The Dirichlet: A Comprehensive Model of Buying
     Behavior}.  G.J. Goodhardt, A.S.C. Ehrenberg, C. Chatfield.  \emph{Journal

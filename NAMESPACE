@@ -2,6 +2,7 @@ export(dirichlet, print.dirichlet, summary.dirichlet, plot.dirichlet)
 S3method(plot, dirichlet)
 S3method(print, dirichlet)
 S3method(summary, dirichlet)
+
 importFrom("grDevices", "rainbow")
-importFrom("graphics", "abline", "boxplot", "legend", "lines", "par", "plot")
+importFrom("graphics", "abline", "boxplot", "legend", "lines", "par")
 importFrom("stats", "optimize", "weighted.mean")

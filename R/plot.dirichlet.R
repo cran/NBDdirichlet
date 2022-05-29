@@ -41,7 +41,7 @@ function(x,      # object of "dirichlet" class
   par(mfrow=c(1,2))
   
   plot(c(0,rep(t,nb)), c(0,r.pen[,nt]), type="n",
-       main=paste("Theoretical Penetration Growth of Retailer Over",t,"Quarters"),
+       main=paste("Theoretical Penetration Growth\nof Retailer Over",t,"Quarters"),
        xlab="Quarters",ylab="Penetration")
   abline(h=seq(0.1,1,0.05),col="gray90")
   for (i in 1:nb) {
@@ -52,7 +52,7 @@ function(x,      # object of "dirichlet" class
   ## Buy Rate Plot
   plot(matrix(tseq,nrow=nb,ncol=nt,byrow=T), r.buy, type="n",
        ylim=c(1,max(r.buy)+0.1),
-       main=paste("Theoretical Shopping Rate Growth Over", t, "Quarters"),
+       main=paste("Theoretical Shopping Rate\nGrowth Over", t, "Quarters"),
        xlab="Quarters",ylab="Shopping Frequency")
   abline(h=seq(2,30,0.5),col="gray90")        # make horizong lines 
   for (i in 1:nb) {
